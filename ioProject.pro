@@ -4,4 +4,18 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        bibliotekamaterialow.cpp \
+        film.cpp \
+        main.cpp \
+        material.cpp \
+        serial.cpp \
+        transmisjalive.cpp \
+        wideo.cpp
+
+HEADERS += \
+    bibliotekamaterialow.h \
+    film.h \
+    material.h \
+    serial.h \
+    transmisjalive.h \
+    wideo.h
