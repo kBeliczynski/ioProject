@@ -6,8 +6,10 @@ CONFIG -= qt
 SOURCES += \
         bibliotekamaterialow.cpp \
         film.cpp \
+        kreatorfilm.cpp \
+        kreatorserial.cpp \
+        kreatortransmisjilive.cpp \
         main.cpp \
-        material.cpp \
         serial.cpp \
         transmisjalive.cpp \
         wideo.cpp
@@ -15,6 +17,10 @@ SOURCES += \
 HEADERS += \
     bibliotekamaterialow.h \
     film.h \
+    kreatorfilm.h \
+    kreatormaterialow.h \
+    kreatorserial.h \
+    kreatortransmisjilive.h \
     material.h \
     serial.h \
     transmisjalive.h \
