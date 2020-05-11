@@ -7,6 +7,7 @@ SOURCES += \
         bazaKont.cpp \
         bibliotekamaterialow.cpp \
         film.cpp \
+        konto.cpp \
         kreatorfilm.cpp \
         kreatorserial.cpp \
         kreatortransmisjilive.cpp \
@@ -14,12 +15,14 @@ SOURCES += \
         main.cpp \
         serial.cpp \
         transmisjalive.cpp \
+        kontopracownika.cpp \
         wideo.cpp
 
 HEADERS += \
     bazaKont.h \
     bibliotekamaterialow.h \
     film.h \
+    konto.h \
     kreatorfilm.h \
     kreatormaterialow.h \
     kreatorserial.h \
@@ -28,4 +31,8 @@ HEADERS += \
     material.h \
     serial.h \
     transmisjalive.h \
+    kontopracownika.h \
     wideo.h
+
+DISTFILES += \
+        bazaKont.txt

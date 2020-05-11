@@ -3,6 +3,8 @@
 #include "kreatorserial.h"
 #include "kreatortransmisjilive.h"
 #include "loginManager.h"
+#include "konto.h"
+#include "kontopracownika.h"
 
 using namespace std;
 
@@ -35,9 +37,29 @@ int main()
     biblioMat->ogladaj(3);
     cout << biblioMat->getCena(1).first << " zł " << biblioMat->getCena(1).second << " gr" << endl;
     cout << biblioMat->getPoziomDostepu(1) << endl;
-    */
+    /**/
 
-    LoginManager loginMenago;
-    loginMenago.zarejestruj();
+    /*
+    Konto konto;
+    konto.wyswietlKatalog(biblioMat);
+    konto.ogladaj(biblioMat);
+    konto.pobierz(biblioMat);
+    konto.wykupAbonament();
+    konto.wykupAbonament();
+    konto.ogladaj(biblioMat);
+    konto.pobierz(biblioMat);
+    /**/
+
+    KontoPracownika kontoPracownika;
+//    kontoPracownika.wykupAbonament();
+//    kontoPracownika.wyswietlKatalog(biblioMat);
+//    kontoPracownika.rozpocznijTransmisje(biblioMat);
+    kontoPracownika.dodajMaterial(biblioMat);
+
+//    LoginManager loginMenago;
+//    loginMenago.zarejestruj();
+
+
+
     return 0;
 }

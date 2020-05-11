@@ -1,0 +1,60 @@
+#include "kontopracownika.h"
+
+
+KontoPracownika::KontoPracownika() : Konto(PRACOWNIK,false){}
+
+void KontoPracownika::rozpocznijTransmisje(BibliotekaMaterialow * biblioteka){
+    string tytul, zawartosc;
+    char c;
+    cout << "Podaj tytul : ";
+    cin >> tytul;
+    cin.ignore();
+    cout << "Podaj zawartosc: ";
+    getline(cin,zawartosc);
+    cout << "Rozpoczynam transmisje" << endl;
+    sleep(1);
+    cout << "Transmisja trwa ";
+    for(int i=0; i<5; i++){
+        sleep(1);
+        cout << ". ";
+        cout.flush();
+    }
+    cout << endl << "Transmisja zostala zakonczona" << endl;
+    cout << "Jesli chcesz zapisac transmisje kliknij 't' jesli nie, kliknij dowolny klawisz : ";
+    c = getchar();
+    if(c == 't'){
+        Wideo * transmisja = new Wideo;
+        transmisja->setTytul(tytul);
+        transmisja->setTytul(tytul);
+        transmisja->setZawartosc(zawartosc);
+        biblioteka->dodajMaterial("TRANSMISJA",0,{transmisja});
+        cout << "Dodano transmisje" << endl;
+    }
+}
+
+void KontoPracownika::wykupAbonament() {Konto::wykupAbonament();}
+
+void KontoPracownika::dodajMaterial(BibliotekaMaterialow * biblioteka){
+    int licznik = 1;
+    vector<string> kreatory(biblioteka->getKreatoryMaterialow().size());
+    int wybor, poziomDostepu;
+    string tytul, zawartosc;
+    cout << "Jaki material chcesz dodac ? " << endl;
+    for(auto it=biblioteka->getKreatoryMaterialow().begin(); it!=biblioteka->getKreatoryMaterialow().end(); it++,licznik++){
+        cout<< licznik << ". " <<it->first<<endl;
+        kreatory.push_back(it->first);
+    }
+    cin >> wybor;
+    cout << "Podaj tytul: ";
+    cin >> tytul;
+    cin.ignore();
+    cout << "Podaj zawartosc: ";
+    getline(cin,zawartosc);
+    cout << "Podaj poziom dostepu: ";
+    cin >> poziomDostepu;
+    Wideo * wideo = new Wideo;
+    wideo->setTytul(tytul);
+    wideo->setZawartosc(zawartosc);
+    biblioteka->dodajMaterial(kreatory[wybor+biblioteka->getKreatoryMaterialow().size()-1],poziomDostepu,{wideo});
+    cout << "Dodano " << kreatory[wybor+biblioteka->getKreatoryMaterialow().size()-1] << " pomyslnie"<< endl;
+}

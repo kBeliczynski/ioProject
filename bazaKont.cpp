@@ -24,12 +24,12 @@ bool checkLine(string & linia, string & login){
 bool validate(string & login, string & haslo){
     fstream file;
     file.open("bazaKont.txt", ios::in);
-    if( file.good() ){
+    if(file.good()){
        string linia;
        while( getline(file, linia) ){
             if( !checkLine(linia, login) ){
                 file.close();
-                message = "Login jest juz zajêty";
+                message = "Login jest juz zajï¿½ty";
                 return false;
             }
        }
@@ -44,7 +44,7 @@ bool validate(string & login, string & haslo){
 }
 
 bool BazaKont::dodajKonto(string & login, string & haslo, string & uprawnienia){
-        if( validate(login, haslo) ){
+        if( validate(login, haslo)){
             fstream file;
             file.open("bazaKont.txt", ios_base::app);
             file << login+" "+haslo+" "+uprawnienia+'\n';

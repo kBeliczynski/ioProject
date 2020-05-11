@@ -73,3 +73,8 @@ void BibliotekaMaterialow::pobierz(int numerMaterialu)
 {
     bibliotekaMaterialow[numerMaterialu - 1]->pobierz();
 }
+
+std::map <std::string, kreatorMaterialow*> BibliotekaMaterialow::getKreatoryMaterialow(){
+    return this->kreatoryMaterialow;
+}
+
