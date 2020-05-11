@@ -1,7 +1,7 @@
 #include "bibliotekamaterialow.h"
 
 
-void BibliotekaMaterialow::dodajMaterial(const std::string &typKreatora, int poziomDostepu, std::initializer_list<Wideo *> &wideoList)
+void BibliotekaMaterialow::dodajMaterial(const std::string &typKreatora, int poziomDostepu, std::initializer_list<Wideo *> wideoList)
 {
     if (kreatoryMaterialow.find(typKreatora) == kreatoryMaterialow.end())
     {
@@ -10,7 +10,9 @@ void BibliotekaMaterialow::dodajMaterial(const std::string &typKreatora, int poz
     else
     {
         kreatorMaterialow* k = kreatoryMaterialow[typKreatora];
-        k->stworzMaterial(poziomDostepu, wideoList);
+        std::vector<Wideo*> vec;
+        vec.insert(vec.end(), wideoList.begin(), wideoList.end());
+        bibliotekaMaterialow.push_back(k->stworzMaterial(poziomDostepu, vec));
     }
 }
 
@@ -40,4 +42,34 @@ void BibliotekaMaterialow::wyswietlKatalog() const
 void BibliotekaMaterialow::dodajKreator(const std::string &typKreatora, kreatorMaterialow *kreator)
 {
     kreatoryMaterialow[typKreatora] = kreator;
+}
+
+int BibliotekaMaterialow::getPoziomDostepu(int numerMaterialu) const
+{
+    return bibliotekaMaterialow[numerMaterialu - 1]->getPoziomDostepu();
+}
+
+void BibliotekaMaterialow::setPoziomDostepu(int numerMaterialu, int poziomDostepu)
+{
+    bibliotekaMaterialow[numerMaterialu - 1]->setPoziomDostepu(poziomDostepu);
+}
+
+std::pair<int, int> BibliotekaMaterialow::getCena(int numerMaterialu) const
+{
+    return bibliotekaMaterialow[numerMaterialu - 1]->getCena();
+}
+
+void BibliotekaMaterialow::setCena(int numerMaterialu, std::pair<int, int> nowaCena)
+{
+    bibliotekaMaterialow[numerMaterialu - 1]->setCena(nowaCena);
+}
+
+void BibliotekaMaterialow::ogladaj(int numerMaterialu) const
+{
+    bibliotekaMaterialow[numerMaterialu - 1]->ogladaj();
+}
+
+void BibliotekaMaterialow::pobierz(int numerMaterialu)
+{
+    bibliotekaMaterialow[numerMaterialu - 1]->pobierz();
 }

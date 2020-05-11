@@ -1,9 +1,14 @@
 #include "film.h"
 
-Film::Film(int poziomDostepu, std::initializer_list<Wideo *> &wideoList)
+Film::Film(int poziomDostepu, std::vector<Wideo*> wideoList)
 {
     this->poziomDostepu = poziomDostepu;
-    film = *wideoList.begin();
+    film = wideoList[0];
+}
+
+int Film::getPoziomDostepu() const
+{
+    return poziomDostepu;
 }
 
 void Film::setPoziomDostepu(int poziomDostepu)
@@ -29,4 +34,9 @@ void Film::setCena(const std::pair<int, int> &nowaCena)
 void Film::ogladaj() const
 {
     std::cout << film->getZawartosc() << std::endl;
+}
+
+void Film::pobierz() const
+{
+    std::cout << "Nie można pobrać" << std::endl;
 }

@@ -10,13 +10,14 @@ class Film : public Material
     Wideo *film;
     std::pair<int, int> cena;   // first == złote; second == grosze
 public:
-    Film(int poziomDostepu, std::initializer_list<Wideo*> &wideoList);
-    int getPoziomDostepu() const;
-    void setPoziomDostepu(int poziomDostepu);
-    std::string getTytul() const;
-    std::pair<int, int> getCena() const;
-    void setCena(const std::pair<int, int> &nowaCena);
-    void ogladaj() const;
+    Film(int poziomDostepu, std::vector<Wideo*> wideoList);
+    int getPoziomDostepu() const override;
+    void setPoziomDostepu(int poziomDostepu) override;
+    std::string getTytul() const override;
+    std::pair<int, int> getCena() const override;
+    void setCena(const std::pair<int, int> &nowaCena) override;
+    void ogladaj() const override;
+    void pobierz() const override;
 };
 
 #endif // FILM_H

@@ -1,6 +1,6 @@
 #include "serial.h"
 
-Serial::Serial(int poziomDostepu, std::initializer_list<Wideo*> &wideoList)
+Serial::Serial(int poziomDostepu, std::vector<Wideo*> wideoList)
 {
     this->poziomDostepu = poziomDostepu;
     listaOdcinkow = wideoList;
@@ -38,4 +38,9 @@ void Serial::ogladaj() const
     int odcinek;
     std::cin >> odcinek;
     std :: cout << listaOdcinkow[odcinek]->getZawartosc() << std::endl;
+}
+
+void Serial::pobierz() const
+{
+    std::cout << "Nie można pobrać" << std::endl;
 }

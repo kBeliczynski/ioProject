@@ -1,7 +1,7 @@
 #include "transmisjalive.h"
 
 
-TransmisjaLive::TransmisjaLive(int poziomDostepu, std::initializer_list<Wideo *> &wideoList)
+TransmisjaLive::TransmisjaLive(int poziomDostepu, std::vector<Wideo *> wideoList)
 {
     this->poziomDostepu = poziomDostepu;
     transmisja = *wideoList.begin();
@@ -35,4 +35,9 @@ void TransmisjaLive::setCena(const std::pair<int, int> &nowaCena)
 void TransmisjaLive::ogladaj() const
 {
     std::cout << transmisja->getZawartosc() << std::endl;
+}
+
+void TransmisjaLive::pobierz() const
+{
+    std::cout << "Pobieranie transmisji pod tytułem: " << getTytul() << std::endl;
 }
