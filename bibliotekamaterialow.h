@@ -26,7 +26,6 @@ public:
     void ogladaj(int numerMaterialu) const;
     void pobierz(int numerMaterialu);
     std::map <std::string, kreatorMaterialow*> getKreatoryMaterialow();
-    std::string operator[](int liczba);
 };
 
 #endif // BIBLIOTEKAMATERIALOW_H

@@ -35,14 +35,14 @@ void KontoPracownika::rozpocznijTransmisje(BibliotekaMaterialow * biblioteka){
 void KontoPracownika::wykupAbonament() {Konto::wykupAbonament();}
 
 void KontoPracownika::dodajMaterial(BibliotekaMaterialow * biblioteka){
-    int licznik = 1;
-    vector<string> kreatory(biblioteka->getKreatoryMaterialow().size());
+    int licznik = 0;
+    string kreatory[biblioteka->getKreatoryMaterialow().size()];
     int wybor, poziomDostepu;
     string tytul, zawartosc;
     cout << "Jaki material chcesz dodac ? " << endl;
     for(auto it=biblioteka->getKreatoryMaterialow().begin(); it!=biblioteka->getKreatoryMaterialow().end(); it++,licznik++){
-        cout<< licznik << ". " <<it->first<<endl;
-        kreatory.push_back(it->first);
+        cout<< licznik+1 << ". " <<it->first<<endl;
+        kreatory[licznik]=it->first;
     }
     cin >> wybor;
     cout << "Podaj tytul: ";
@@ -55,6 +55,6 @@ void KontoPracownika::dodajMaterial(BibliotekaMaterialow * biblioteka){
     Wideo * wideo = new Wideo;
     wideo->setTytul(tytul);
     wideo->setZawartosc(zawartosc);
-    biblioteka->dodajMaterial(kreatory[wybor+biblioteka->getKreatoryMaterialow().size()-1],poziomDostepu,{wideo});
-    cout << "Dodano " << kreatory[wybor+biblioteka->getKreatoryMaterialow().size()-1] << " pomyslnie"<< endl;
+    biblioteka->dodajMaterial(kreatory[wybor-1],poziomDostepu,{wideo});
+    cout << "Dodano " << kreatory[wybor-1] << " pomyslnie"<< endl;
 }
