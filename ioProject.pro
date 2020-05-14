@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        administrator.cpp \
         bazaKont.cpp \
         bibliotekamaterialow.cpp \
         film.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
         wideo.cpp
 
 HEADERS += \
+    administrator.h \
     bazaKont.h \
     bibliotekamaterialow.h \
     film.h \

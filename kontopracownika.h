@@ -5,6 +5,7 @@
 class KontoPracownika : public Konto{
 public:
     KontoPracownika();
+    KontoPracownika(dostep d);
     void rozpocznijTransmisje(BibliotekaMaterialow *);
     void dodajMaterial(BibliotekaMaterialow *);
     void wykupAbonament();

@@ -9,7 +9,7 @@ void LoginManager::zarejestruj(){
 
     string login;
     string haslo;
-    string uprawnienie = "User";
+    string uprawnienie = "PODSTAWOWE";
 
     cout << "Podaj login: " << endl;
     cin >> login;

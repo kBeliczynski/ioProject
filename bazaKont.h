@@ -7,6 +7,8 @@ class BazaKont{
         bool dodajKonto(std::string&, std::string&, std::string& );
         bool usunKonto(std::string);
         std::string findAccount(std::string&, std::string&);
+        void pokazListeKont();
+        bool usunKonto(std::string&, std::string&);
         //void getKonto(std::string&);
         //void modifyKonto();
 };

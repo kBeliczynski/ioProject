@@ -120,3 +120,47 @@ string BazaKont::findAccount(string & login, string & haslo){
         return "";
     }
 }
+
+void BazaKont::pokazListeKont(){
+    fstream file;
+    string l;
+    string h;
+    string chmod;
+    int i=1;
+    file.open("bazaKont.txt", ios::in);
+    if( file.good() ){
+        while( file >> l >> h >> chmod )
+            cout << i << ". login: " << l << " haslo: " << h << " uprawnienia: " <<chmod << endl;
+        }
+         file.close();
+}
+
+bool BazaKont::usunKonto(string & login, string & haslo){
+    fstream file;
+    string l;
+    string h;
+    string chmod;
+    bool isLogin = false;
+    bool isHaslo = false;
+    file.open("bazaKont.txt", ios::in);
+    if( file.good() ){
+        while( file >> l >> h >> chmod )
+            if( l==login ){
+                isLogin = true;
+                if( h==haslo ){
+                    isHaslo = true;
+                    l = h = chmod = "usunieto";
+                }
+            }
+         file.close();
+         if( isLogin && !isHaslo )
+            cout << "Podales zle haslo" << endl;
+         else if( !isLogin )
+            cout << "Nie ma takiego loginu w bazie" << endl;
+         return false;
+    }
+    else{
+        cout << "Blad otwarcia pliku" << endl;
+        return false;
+    }
+}

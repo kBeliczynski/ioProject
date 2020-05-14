@@ -3,6 +3,9 @@
 
 KontoPracownika::KontoPracownika() : Konto(PRACOWNIK,false){}
 
+KontoPracownika::KontoPracownika(dostep d) : Konto(d,false){}
+
+
 void KontoPracownika::rozpocznijTransmisje(BibliotekaMaterialow * biblioteka){
     string tytul, zawartosc;
     char c;
