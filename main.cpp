@@ -30,7 +30,7 @@ int main(){
                              new Wideo("Mr Robot S01E02", "Mr Robot S01E02 content"),
                              new Wideo("Mr Robot S01E03", "Mr Robot S01E03 content")});
     BazaKont bazakont;
-
+    int wybor=1;
     /* Poniżej demonstracja użycia biblioteki materiałów. Pozostałe funkcje są oczywiste.
     biblioMat->wyswietlKatalog();
     biblioMat->pobierz(2);
@@ -39,39 +39,33 @@ int main(){
     cout << biblioMat->getPoziomDostepu(1) << endl;
     /**/
 
-    /*
-    Konto konto;
-    konto.wyswietlKatalog(biblioMat);
-    konto.ogladaj(biblioMat);
-    konto.pobierz(biblioMat);
-    konto.wykupAbonament();
-    konto.wykupAbonament();
-    konto.ogladaj(biblioMat);
-    konto.pobierz(biblioMat);
-    /**/
-
-//    KontoPracownika kontoPracownika;
-//    kontoPracownika.wykupAbonament();
-//    kontoPracownika.wyswietlKatalog(biblioMat);
-//    kontoPracownika.rozpocznijTransmisje(biblioMat);
-//    kontoPracownika.dodajMaterial(biblioMat);
-
 //    LoginManager loginMenago;
 //    loginMenago.zarejestruj();
 
     Administrator administrator(bazakont);
-//    administrator.rozpocznijTransmisje(biblioMat);
-//    administrator.wyswietlKatalog(biblioMat);
-//    administrator.wykupAbonament();
-//    administrator.dodajMaterial(biblioMat);
-    administrator.pobierz(biblioMat);
-    administrator.ogladaj(biblioMat);
-    administrator.usunMaterial(biblioMat);
-    administrator.usunMaterial(biblioMat);
-    administrator.dodajKonto();
-    administrator.usunKonto();
+    while(wybor != 0){
+        administrator.wyswietlMenu();
+        cout << "Ktora opcje wybrac : ";
+        cin >> wybor;
+        administrator.wybierzOpcje(wybor,biblioMat);
+    }
+/*
+    KontoPracownika pracownik;
+     while(wybor != 0){
+        pracownik.wyswietlMenu();
+        cout << "Ktora opcje wybrac : ";
+        cin >> wybor;
+        pracownik.wybierzOpcje(wybor,biblioMat);
+    }
 
-
+    Konto konto;
+     while(wybor != 0){
+        konto.wyswietlMenu();
+        cout << "Ktora opcje wybrac : ";
+        cin >> wybor;
+        konto.wybierzOpcje(wybor,biblioMat);
+    }
+/**/
 
     return 0;
 }

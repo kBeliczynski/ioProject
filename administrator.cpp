@@ -53,5 +53,43 @@ void Administrator::usunKonto(){
     cout << "Podaj login konta do usuniecia: ";
     cin >> login;
     bazaKont.usunKonto(login);
+}
 
+void Administrator::wyswietlMenu(){
+    KontoPracownika::wyswietlMenu();
+    cout << "7. Usun material" << endl;
+    cout << "8. Dodaj konto" << endl;
+    cout << "9. Usun konto" << endl;
+    cout << "10. Modyfikuj konto" << endl;
+    cout << "11. Wyswietl liste kont" << endl;
+}
+
+void Administrator::wybierzOpcje(int wybor, BibliotekaMaterialow * biblioteka){
+    if(wybor < 7)
+        KontoPracownika::wybierzOpcje(wybor,biblioteka);
+    else{
+        switch(wybor){
+            case 7:
+                usunMaterial(biblioteka);
+                break;
+            case 8:
+                dodajKonto();
+                break;
+            case 9:
+                usunKonto();
+                break;
+            case 10:
+                modyfikujKonto();
+                break;
+            case 11:
+                wyswietlListeKont();
+                break;
+            default:
+                cout << "Podana opcja nie istnieje" << endl;
+        }
+    }
+}
+
+void Administrator::wyswietlListeKont(){
+    bazaKont.pokazListeKont();
 }

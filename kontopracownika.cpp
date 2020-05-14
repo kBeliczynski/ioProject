@@ -61,3 +61,26 @@ void KontoPracownika::dodajMaterial(BibliotekaMaterialow * biblioteka){
     biblioteka->dodajMaterial(kreatory[wybor-1],poziomDostepu,{wideo});
     cout << "Dodano " << kreatory[wybor-1] << " pomyslnie"<< endl;
 }
+
+void KontoPracownika::wyswietlMenu(){
+    Konto::wyswietlMenu();
+    cout << "5. Rozpocznij transmisje" << endl;
+    cout << "6. Dodaj material" << endl;
+}
+
+void KontoPracownika::wybierzOpcje(int wybor, BibliotekaMaterialow * biblioteka){
+    if(wybor < 5)
+        Konto::wybierzOpcje(wybor,biblioteka);
+    else{
+        switch(wybor){
+            case 5:
+                rozpocznijTransmisje(biblioteka);
+                break;
+            case 6:
+                dodajMaterial(biblioteka);
+                break;
+            default:
+                cout << "Podana opcja nie istnieje" << endl;
+        }
+    }
+}

@@ -33,6 +33,7 @@ void Konto::wyswietlKatalog(BibliotekaMaterialow * biblioteka){
 
 void Konto::ogladaj(BibliotekaMaterialow * biblioteka){
     int numer;
+    biblioteka->wyswietlKatalog();
     cout << "podaj numer materialu : ";
     cin >> numer;
 
@@ -59,5 +60,36 @@ void Konto::pobierz(BibliotekaMaterialow * biblioteka){
         cout << "Podaj numer materialu do pobrania: ";
         cin >> numer;
         biblioteka->pobierz(numer);
+    }
+}
+
+void Konto::wyswietlMenu(){
+    cout << "-------------MENU--------------" << endl;
+    cout << "0. Zamknij program" << endl;
+    cout << "1. Wykup abonament" << endl;
+    cout << "2. Wyswietl katalog" << endl;
+    cout << "3. ogladaj material" << endl;
+    cout << "4. pobierz material" << endl;
+}
+
+void Konto::wybierzOpcje(int wybor, BibliotekaMaterialow * biblioteka){
+        switch(wybor){
+            case 0:
+                 cout << "Zamykam program" << endl;
+                 break;
+            case 1:
+                 wykupAbonament();
+                 break;
+             case 2:
+                wyswietlKatalog(biblioteka);
+                break;
+            case 3:
+                ogladaj(biblioteka);
+                break;
+            case 4:
+                pobierz(biblioteka);
+                break;
+            default:
+                cout << "Taka opcja nie istnieje";
     }
 }

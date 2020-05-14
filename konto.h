@@ -18,11 +18,13 @@ class Konto{
 
 public:
     Konto();
-    Konto(dostep poziomDostepu, bool reklamy);
+    Konto(dostep, bool);
     void wykupAbonament();
     void wyswietlKatalog(BibliotekaMaterialow *);
     void ogladaj(BibliotekaMaterialow *);
     void pobierz(BibliotekaMaterialow *);
+    void wyswietlMenu();
+    void wybierzOpcje(int, BibliotekaMaterialow *);
 };
 
 #endif // KONTO_H
