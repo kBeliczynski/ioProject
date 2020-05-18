@@ -1,7 +1,8 @@
 #include "konto.h"
+#include "windows.h"
 
-Konto::Konto(){
-    this->poziomDostepu = PODSTAWOWE;
+Konto::Konto(dostep poziom){
+    this->poziomDostepu = poziom;
     this->reklamy = true;
 }
 
@@ -10,9 +11,14 @@ Konto::Konto(dostep poziomDostepu, bool reklamy){
     this->reklamy = reklamy;
 }
 
+dostep Konto::getDostep(){
+    return this->poziomDostepu;
+}
+
 void Konto::wykupAbonament(){
     if(this->poziomDostepu == PODSTAWOWE){
         cout << "Wykupiono abonament. Od teraz posiadasz konto premium" << endl;
+        cout << "Okres premium wygasa z wylaczeniem systemu!" << endl;
         this->poziomDostepu = PREMIUM;
         this->reklamy = false;
     }else
@@ -42,13 +48,12 @@ void Konto::ogladaj(BibliotekaMaterialow * biblioteka){
     if(this->poziomDostepu == PODSTAWOWE){
         cout << "REKLAMA";
         for(int i=0; i<5; i++){
-            sleep(1);
+            Sleep(1);
             cout << ". ";
             cout.flush();
         }
         cout << endl;
     }
-    cout << "Ogladasz teraz : ";
     biblioteka->ogladaj(numer);
 }
 

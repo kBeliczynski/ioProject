@@ -17,9 +17,10 @@ class Konto{
     bool reklamy;
 
 public:
-    Konto();
+    Konto(dostep);
     Konto(dostep, bool);
     void wykupAbonament();
+    dostep getDostep();
     void wyswietlKatalog(BibliotekaMaterialow *);
     void ogladaj(BibliotekaMaterialow *);
     void pobierz(BibliotekaMaterialow *);

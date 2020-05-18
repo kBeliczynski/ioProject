@@ -13,14 +13,14 @@ void Administrator::usunMaterial(BibliotekaMaterialow * biblioteka){
 void Administrator::modyfikujKonto(){
     cout << "Wyswietlam liste wszystkich kont: " << endl;
     bazaKont.pokazListeKont();
-//    bazaKont.modifyKonto();   // wymaga implementacji metody w klasie bazaKont
+    bazaKont.modifyKonto();
 }
 
 void Administrator::dodajKonto(){
     string login, haslo;
-    string podstawowe = "PODSTAWOWE";
-    string premium = "PREMIUM";
-    string pracownik = "PRACOWNIK";
+    string podstawowe = "User";
+    string premium = "Premium";
+    string pracownik = "Pracownik";
     int dostep;
     cout << "podaj login: ";
     cin >> login;

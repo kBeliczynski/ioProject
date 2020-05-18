@@ -2,14 +2,27 @@
 #include <iostream>
 using namespace std;
 
+dostep convert(string chmod){
+    dostep d;
+    if( chmod == "User" )
+        d = PODSTAWOWE;
+    else if( chmod == "Pracownik")
+        d = PRACOWNIK;
+    else if( chmod == "Administrator")
+        d = ADMINISTRATOR;
+    else if( chmod == "Premium")
+        d = PREMIUM;
+    return d;
+}
 
-void LoginManager::zarejestruj(){
+
+Konto * LoginManager::zarejestruj(){
     cout << "-------------------" << endl;
     cout << "Zarejestruj sie: " << endl;
 
     string login;
     string haslo;
-    string uprawnienie = "PODSTAWOWE";
+    string uprawnienie = "Podstawowe";
 
     cout << "Podaj login: " << endl;
     cin >> login;
@@ -18,13 +31,13 @@ void LoginManager::zarejestruj(){
 
     if( !baza.dodajKonto(login, haslo, uprawnienie) ){
         cout << "Sprobuj jeszcze raz!" << endl;
-        zarejestruj();
+        return zarejestruj();
     }
     else
-        zaloguj();
+        return zaloguj();
 }
 
-void LoginManager::zaloguj(){
+Konto * LoginManager::zaloguj(){
     cout << "-------------------" << endl;
     cout << "Zaloguj sie: " << endl;
 
@@ -42,8 +55,10 @@ void LoginManager::zaloguj(){
         cout << "Sprobuj ponownie" << endl;
         zaloguj();
     }
-    else
-        cout << "Zalogowano pomyslnie" << endl;
+    else{
+        dostep d = convert(chmod);
+        return new Konto(d);
+    }
 
     // tutaj poprowadzenie do innego interfejsu
 }

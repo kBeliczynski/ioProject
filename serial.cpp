@@ -37,7 +37,12 @@ void Serial::ogladaj() const
               << std::endl;
     int odcinek;
     std::cin >> odcinek;
-    std :: cout << listaOdcinkow[odcinek]->getZawartosc() << std::endl;
+    if( odcinek >= 0 && odcinek<listaOdcinkow.size() ){
+        std::cout << "Ogladasz teraz : ";
+        std :: cout << listaOdcinkow[odcinek]->getZawartosc() << std::endl;
+    }
+    else
+        std::cout << "Nie ma takiego numeru!" << std::endl;
 }
 
 void Serial::pobierz() const

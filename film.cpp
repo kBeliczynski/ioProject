@@ -33,6 +33,7 @@ void Film::setCena(const std::pair<int, int> &nowaCena)
 
 void Film::ogladaj() const
 {
+    std::cout << "Ogladasz teraz : ";
     std::cout << film->getZawartosc() << std::endl;
 }
 

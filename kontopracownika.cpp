@@ -1,4 +1,5 @@
 #include "kontopracownika.h"
+#include "windows.h"
 
 
 KontoPracownika::KontoPracownika() : Konto(PRACOWNIK,false){}
@@ -15,10 +16,10 @@ void KontoPracownika::rozpocznijTransmisje(BibliotekaMaterialow * biblioteka){
     cout << "Podaj zawartosc: ";
     getline(cin,zawartosc);
     cout << "Rozpoczynam transmisje" << endl;
-    sleep(1);
+    Sleep(1);
     cout << "Transmisja trwa ";
     for(int i=0; i<5; i++){
-        sleep(1);
+        Sleep(1);
         cout << ". ";
         cout.flush();
     }
@@ -43,9 +44,10 @@ void KontoPracownika::dodajMaterial(BibliotekaMaterialow * biblioteka){
     int wybor, poziomDostepu;
     string tytul, zawartosc;
     cout << "Jaki material chcesz dodac ? " << endl;
-    for(auto it=biblioteka->getKreatoryMaterialow().begin(); it!=biblioteka->getKreatoryMaterialow().end(); it++,licznik++){
-        cout<< licznik+1 << ". " <<it->first<<endl;
-        kreatory[licznik]=it->first;
+    for(auto it: biblioteka->getKreatoryMaterialow()){
+        cout<< licznik+1 << ". " <<it.first<<endl;
+        kreatory[licznik]=it.first;
+        licznik++;
     }
     cin >> wybor;
     cout << "Podaj tytul: ";

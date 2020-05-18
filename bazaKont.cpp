@@ -29,7 +29,7 @@ bool validate(string & login, string & haslo){
        while( getline(file, linia) ){
             if( !checkLine(linia, login) ){
                 file.close();
-                message = "Login jest juz zaj�ty";
+                message = "Login jest juz zajety";
                 return false;
             }
        }
@@ -43,7 +43,7 @@ bool validate(string & login, string & haslo){
     }
 }
 
-bool BazaKont::dodajKonto(string & login, string & haslo, string & uprawnienia){
+bool BazaKont::dodajKonto(string & login, string & haslo, string uprawnienia){
         if( validate(login, haslo)){
             fstream file;
             file.open("bazaKont.txt", ios_base::app);
@@ -135,7 +135,34 @@ void BazaKont::pokazListeKont(){
          file.close();
 }
 
-bool BazaKont::usunKonto(string & login, string & haslo){
+void BazaKont::modifyKonto(){
+    string login, haslo, chmod;
+    cout << "Podaj login konta do modyfikacji!" << endl;
+    cin >> login >> haslo;
+    usunKonto(login);
+    cout << "Podaj nowe haslo: " << endl;
+    cin >> haslo;
+
+    cout << "Wybierz numerek od 1 do 4" << endl;
+    cout << "1.Konto podstawowe" << endl;
+    cout << "2.Konto premium" << endl;
+    cout << "3.Konto pracownika" << endl;
+    cout << "4.Administrator" << endl;
+
+    cin >> chmod;
+    if(chmod == "1" )
+        dodajKonto(login, haslo, "User");
+    else if(chmod == "2")
+        dodajKonto(login, haslo, "Premium");
+    else if(chmod == "3")
+        dodajKonto(login, haslo, "Pracownik");
+    else if(chmod == "4")
+        dodajKonto(login, haslo, "Administrator");
+    else
+            cout << "Podales zly numer!" << endl;
+}
+
+/*bool BazaKont::usunKonto(string & login, string & haslo){
     fstream file;
     string l;
     string h;
@@ -163,4 +190,4 @@ bool BazaKont::usunKonto(string & login, string & haslo){
         cout << "Blad otwarcia pliku" << endl;
         return false;
     }
-}
+}*/

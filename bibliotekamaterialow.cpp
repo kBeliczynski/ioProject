@@ -22,13 +22,11 @@ void BibliotekaMaterialow::usunMaterial()
     long toRemove;
     std::cin >> toRemove;
     if (toRemove == -1)
-    {
         return;
-    }
-    else if (toRemove >= 0 && toRemove < bibliotekaMaterialow.size())
-    {
-        bibliotekaMaterialow.erase(bibliotekaMaterialow.begin() + toRemove);
-    }
+    else if (toRemove > 0 && toRemove <= bibliotekaMaterialow.size())
+        bibliotekaMaterialow.erase(bibliotekaMaterialow.begin() + toRemove-1);
+    else
+        std::cout << "Podales zly numer" << std::endl;
 }
 
 void BibliotekaMaterialow::wyswietlKatalog() const
@@ -66,12 +64,22 @@ void BibliotekaMaterialow::setCena(int numerMaterialu, std::pair<int, int> nowaC
 
 void BibliotekaMaterialow::ogladaj(int numerMaterialu) const
 {
-    bibliotekaMaterialow[numerMaterialu - 1]->ogladaj();
+    if( bibliotekaMaterialow.size() == 0 ){
+        std::cout << "Nie masz materialow w bibliotece!" << std::endl;
+        return;
+    }
+    else if( numerMaterialu>=1 && numerMaterialu<=bibliotekaMaterialow.size() )
+        bibliotekaMaterialow[numerMaterialu - 1]->ogladaj();
+    else
+        std::cout << "Numery materialow zaczynaja sie od 1 i koncza na: " << bibliotekaMaterialow.size()-1 << std::endl;
 }
 
 void BibliotekaMaterialow::pobierz(int numerMaterialu)
 {
-    bibliotekaMaterialow[numerMaterialu - 1]->pobierz();
+    if( numerMaterialu >0 && numerMaterialu<=bibliotekaMaterialow.size() )
+        bibliotekaMaterialow[numerMaterialu - 1]->pobierz();
+    else
+        std::cout << "Nie ma takiego numeru materialu" << std::endl;
 }
 
 std::map <std::string, kreatorMaterialow*> BibliotekaMaterialow::getKreatoryMaterialow(){
