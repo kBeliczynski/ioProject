@@ -7,10 +7,10 @@ class Administrator : public KontoPracownika{
     BazaKont bazaKont;
 public:
     Administrator(BazaKont);
-    void usunMaterial(BibliotekaMaterialow *); //jest
-    void modyfikujKonto(); //aby dokonczyc wymaga metody modyfiKonto w klasie bazaKont
-    void dodajKonto(); // jest
-    void usunKonto(); // jest
+    void usunMaterial(BibliotekaMaterialow *);
+    void modyfikujKonto();
+    void dodajKonto();
+    void usunKonto();
     void wyswietlMenu();
     void wybierzOpcje(int, BibliotekaMaterialow *);
     void wyswietlListeKont();

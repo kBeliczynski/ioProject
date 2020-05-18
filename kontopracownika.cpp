@@ -16,10 +16,10 @@ void KontoPracownika::rozpocznijTransmisje(BibliotekaMaterialow * biblioteka){
     cout << "Podaj zawartosc: ";
     getline(cin,zawartosc);
     cout << "Rozpoczynam transmisje" << endl;
-    Sleep(1);
+    Sleep(1); // sleep(1);
     cout << "Transmisja trwa ";
     for(int i=0; i<5; i++){
-        Sleep(1);
+        Sleep(1); // sleep(1);
         cout << ". ";
         cout.flush();
     }

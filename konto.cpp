@@ -48,7 +48,7 @@ void Konto::ogladaj(BibliotekaMaterialow * biblioteka){
     if(this->poziomDostepu == PODSTAWOWE){
         cout << "REKLAMA";
         for(int i=0; i<5; i++){
-            Sleep(1);
+            Sleep(1); // sleep(1);
             cout << ". ";
             cout.flush();
         }

@@ -138,12 +138,12 @@ void BazaKont::pokazListeKont(){
 void BazaKont::modifyKonto(){
     string login, haslo, chmod;
     cout << "Podaj login konta do modyfikacji!" << endl;
-    cin >> login >> haslo;
+    cin >> login;
     usunKonto(login);
     cout << "Podaj nowe haslo: " << endl;
     cin >> haslo;
 
-    cout << "Wybierz numerek od 1 do 4" << endl;
+    cout << "Wybierz numerek od 1 do 4: " << endl;
     cout << "1.Konto podstawowe" << endl;
     cout << "2.Konto premium" << endl;
     cout << "3.Konto pracownika" << endl;
@@ -161,33 +161,3 @@ void BazaKont::modifyKonto(){
     else
             cout << "Podales zly numer!" << endl;
 }
-
-/*bool BazaKont::usunKonto(string & login, string & haslo){
-    fstream file;
-    string l;
-    string h;
-    string chmod;
-    bool isLogin = false;
-    bool isHaslo = false;
-    file.open("bazaKont.txt", ios::in);
-    if( file.good() ){
-        while( file >> l >> h >> chmod )
-            if( l==login ){
-                isLogin = true;
-                if( h==haslo ){
-                    isHaslo = true;
-                    l = h = chmod = "usunieto";
-                }
-            }
-         file.close();
-         if( isLogin && !isHaslo )
-            cout << "Podales zle haslo" << endl;
-         else if( !isLogin )
-            cout << "Nie ma takiego loginu w bazie" << endl;
-         return false;
-    }
-    else{
-        cout << "Blad otwarcia pliku" << endl;
-        return false;
-    }
-}*/
